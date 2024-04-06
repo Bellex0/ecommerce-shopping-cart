@@ -1,6 +1,18 @@
-import { useRouter } from 'next/router';
-import { useEffect, useState } from 'react'; 
-import '../../app/globals.css';
+import '../app/globals.css';
+import Link from 'next/link';
+
+export default function ThankYou() {
+  
+    return (
+        <main className="flex justify-center items-center h-screen">
+        <div className="bg-white p-8 rounded-lg shadow-md text-center">
+          <h1 className="text-3xl font-bold mb-4 text-black">Thank you for your order!</h1>
+          <p className="text-lg text-gray-700 mb-5">A confirmation email will be sent to you</p>
+          <Link href={"/"} className='text-pink-700 underline'>Back to homepage</Link>
+        </div>
+      </main>
+    );
+};
 
 
 // export default function ThankYou() {
@@ -18,8 +30,6 @@ import '../../app/globals.css';
 //     )
 // }
 
-export default function ThankYou() {
-  
 
 
 
@@ -29,10 +39,10 @@ export default function ThankYou() {
 
     // const router = useRouter();
     // const { session_id } = router.query;
-    const [customerName, setCustomerName] = useState('');
-    const [sessionDetails, setSessionDetails] = useState(null);
+    // const [customerName, setCustomerName] = useState('');
+    // const [sessionDetails, setSessionDetails] = useState(null);
     // const [error, setError] = useState(null);
-    const [sessionID, setSessionID] = useState('');
+    // const [sessionID, setSessionID] = useState('');
 
     // const retryFetchSessionID = async () => {
     //     const { session_id } = router.query;
@@ -194,13 +204,5 @@ export default function ThankYou() {
 //     fetchCustomerName();
 //   }, []);
   
-    return (
-        <main>
-            <div>
-            <h1 className='text-pink-700'>Thank you for your order!</h1>
-            <h4>A confirmation email will be sent to you</h4>
-            </div>
-        </main>
-    );
-};
+ 
 

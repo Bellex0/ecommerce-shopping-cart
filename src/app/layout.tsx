@@ -3,6 +3,7 @@ import type {Metadata} from 'next'
 import {Inter} from 'next/font/google'
 import React, {Suspense} from "react";
 import Navbar from "@/components/navbar";
+import Footer from "@/components/footer";
 import CartProvider from "@/components/provider";
 
 const inter = Inter({subsets: ['latin']})
@@ -23,6 +24,7 @@ export default function RootLayout({children,}: { children: React.ReactNode }) {
             <Suspense>
                 <main>{children}</main>
             </Suspense>
+            <Footer />
         </CartProvider>
         </body>
         </html>

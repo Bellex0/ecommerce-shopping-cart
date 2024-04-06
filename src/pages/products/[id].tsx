@@ -5,6 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import '../../app/globals.css';
 
+
 interface Props {
     productData: Product | null;
 }
@@ -36,29 +37,37 @@ export const getServerSideProps: GetServerSideProps<Props> = async ({ params }) 
 
 
 export default function Product({ productData }: { productData: Product }) {
+
    
     return (
-        <main>
-            <div>
-            <h1 className="mt-4 text-3xl text-white-700">{productData.name}</h1>
-                <p className="mt-1 text-lg font-medium text-gray-900">{new Intl.NumberFormat('en-US', {
-                    style: 'currency',
-                    currency: 'USD'
-                }).format(productData.price / 100)}</p>
+        <main className="flex justify-center items-center h-screen bg-white">
+        <div className="flex">
+          {/* Left Column */}
+          <div className="mr-8">
             <Image
-                src={productData.imageSrc}
-                alt={productData.imageAlt}
-                width={500}
-                height={500}
-                className="object-center group-hover:opacity-75 max-h-[368px]"
+              src={productData.imageSrc}
+              alt={productData.imageAlt}
+              width={350}
+              height={500}
+              className="object-center group-hover:opacity-75 max-h-[368px]"
             />
-            </div>
+           <div className='text-pink-700 underline mt-14'>
             <Link href={"/"}>
-                <div className='text-pink-700 underline'>
-                    Back to View all artworks
-                </div>
-            </Link>   
-         </main>   
+              Back to view all artworks
+            </Link>
+          </div>
+          </div>
+          {/* Right Column */}
+          <div>
+            <h1 className="mt-4 text-3xl text-black">{productData.name}</h1>
+            <p className="mt-1 text-lg font-medium text-gray-900">{new Intl.NumberFormat('en-US', {
+              style: 'currency',
+              currency: 'USD'
+            }).format(productData.price / 100)}</p>
+          </div>
+        </div>
+      </main>
     );
 }
+
 
